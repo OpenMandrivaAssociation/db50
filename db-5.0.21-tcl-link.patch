@@ -1,0 +1,11 @@
+--- db-5.0.21/dist/Makefile.in.tcl̃~	2010-09-30 01:57:48.000000000 +0200
++++ db-5.0.21/dist/Makefile.in	2010-09-30 02:03:54.074352546 +0200
+@@ -167,7 +167,7 @@ libjso_g=	$(libjso_base)-$(LIBVERSION)_g
+ # Tcl support is optional.
+ ##################################################
+ TCL_INCLUDE_SPEC=	@TCL_INCLUDE_SPEC@
+-LIBTSO_LIBS=	@LIBTSO_LIBS@ @LIBSO_LIBS@
++LIBTSO_LIBS=	@LIBTSO_LIBS@ @LIBSO_LIBS@ -ltcl
+ libtcl_base=	libdb_tcl
+ libtcl=		$(libtcl_base).a
+ libtcl_version=	$(libtcl_base)-$(LIBVERSION).a

@@ -1,0 +1,14 @@
+diff -p -up db-5.0.21/dist/Makefile.in.db185~ db-5.0.21/dist/Makefile.in
+--- db-5.0.21/dist/Makefile.in.db185~	2010-03-30 19:36:10.000000000 +0200
++++ db-5.0.21/dist/Makefile.in	2010-09-30 01:57:48.648295774 +0200
+@@ -186,8 +186,8 @@ libtso_major=	$(libtcl_base)-$(LIBMAJOR)
+ # local libraries, for example.  Do that by adding -I options to the DB185INC
+ # line, and -l options to the DB185LIB line.
+ ##################################################
+-DB185INC=	-c @CFLAGS@ -I$(srcdir) @CPPFLAGS@
+-DB185LIB=
++DB185INC=	-c @CFLAGS@ -I/usr/include/db1 -I$(srcdir) @CPPFLAGS@
++DB185LIB=	-Wl,-static,-ldb1,-Bdynamic
+ 
+ ##################################################
+ # Event tracing definitions

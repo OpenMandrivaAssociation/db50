@@ -1,0 +1,41 @@
+--- db-4.8.24/crypto/aes_method.c	2009-08-17 15:26:17.000000000 +0200
++++ db-4.8.24.oden/crypto/aes_method.c	2009-11-26 21:51:07.486608532 +0100
+@@ -267,6 +267,6 @@ __aes_err(env, err)
+ 		errstr = "AES error unrecognized";
+ 		break;
+ 	}
+-	__db_errx(env, errstr);
++	__db_errx(env, "%s", errstr);
+ 	return;
+ }
+--- db-4.8.24/repmgr/repmgr_net.c	2009-08-17 15:26:30.000000000 +0200
++++ db-4.8.24.oden/repmgr/repmgr_net.c	2009-11-26 21:51:07.597670627 +0100
+@@ -1318,7 +1318,7 @@ __repmgr_listen(env)
+ 	}
+ 
+ 	ret = net_errno;
+-	__db_err(env, ret, why);
++	__db_err(env, ret, "%s", why);
+ clean:	if (s != INVALID_SOCKET)
+ 		(void)closesocket(s);
+ 	return (ret);
+--- db-4.8.24/txn/txn.c	2009-08-17 15:26:32.000000000 +0200
++++ db-4.8.24.oden/txn/txn.c.oden	2009-11-27 10:08:47.309695610 +0100
+@@ -168,7 +168,7 @@ __txn_begin(env, ip, parent, txnpp, flag
+ 
+ 	*txnpp = NULL;
+ 	if ((ret = __os_calloc(env, 1, sizeof(DB_TXN), &txn)) != 0) {
+-		__db_errx(env, TxnAlloc);
++		__db_errx(env, "%s", TxnAlloc);
+ 		return (ret);
+ 	}
+ 
+@@ -315,7 +315,7 @@ __txn_compensate_begin(env, txnpp)
+ 	int ret;
+ 
+ 	if ((ret = __os_calloc(env, 1, sizeof(DB_TXN), &txn)) != 0) {
+-		__db_errx(env, TxnAlloc);
++		__db_errx(env, "%s", TxnAlloc);
+ 		return (ret);
+ 	}
+ 
