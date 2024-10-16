@@ -56,7 +56,7 @@ Patch1:		db-4.7.25-fix-format-errors.patch
 Patch2:		db-5.0.21-tcl-link.patch
 # fedora patches
 Patch101:	db-4.7.25-jni-include-dir.patch
-URL:		http://www.oracle.com/technology/software/products/berkeley-db/
+URL:		https://www.oracle.com/technology/software/products/berkeley-db/
 License:	BSD
 Group:		System/Libraries
 BuildRequires:	%{!?_without_tcl:tcl-devel} %{!?_without_db1:db1-devel} ed libtool
