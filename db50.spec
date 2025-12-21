@@ -59,6 +59,7 @@ Patch101:	db-4.7.25-jni-include-dir.patch
 URL:		https://www.oracle.com/technology/software/products/berkeley-db/
 License:	BSD
 Group:		System/Libraries
+BuildRequires:	make
 BuildRequires:	%{!?_without_tcl:tcl-devel} %{!?_without_db1:db1-devel} ed libtool
 %if %with java
 BuildRequires:	java-rpmbuild
